@@ -1,33 +1,49 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Sentiment Analysis Result</title>
-    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/Resultstyle.css') }}">
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+  <title>Sentiment Analysis Result</title>
+  <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/results.css') }}">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
 </head>
-<body>
-    <div class="container">
-        <h2>Sentiment Analysis Results</h2>
-        <img src="{{ url_for('static', filename=chart_filename) }}" alt="Sentiment Pie Chart" class="img-fluid">
-        <table class="table table-bordered">
-            <thead>
-                <tr>
-                    <th>Tweet</th>
-                    <th>Sentiment</th>
-                    <th>Date and Time</th>
-                </tr>
-            </thead>
-            <tbody>
-                {% for tweet in result %}
-                <tr>
-                    <td>{{ tweet.content }}</td>
-                    <td>{{ tweet.sentiment }}</td>
-                    <td>{{ tweet.date_time }}</td>
-                </tr>
-                {% endfor %}
-            </tbody>
-        </table>
-        <a href="/" class="btn btn-primary">Go Back</a>
+<body >
+    <div>
+        <div class="wave"></div>
+        <div class="wave"></div>
+        <div class="wave"></div>
+     </div>
+<div class="container">
+    
+    <h2 class="my-4 text-center">Sentiment Analysis Results</h2>
+   
+    <div class="table-container">
+      <table class="table table-striped table-hover">
+        <thead>
+          <tr>
+            <th>Tweet</th>
+            <th>Sentiment</th>
+            <th>Date and Time</th>
+          </tr>
+        </thead>
+        <tbody>
+          {% if result %}
+          {% for tweet in result %}
+          <tr>
+            <td>{{ tweet.content }}</td>
+            <td class="{% if tweet.sentiment == 'positive' %}positive{% elif tweet.sentiment == 'negative' %}negative{% else %}neutral{% endif %}">{{ tweet.sentiment }}</td>
+            <td>{{ tweet.date_time }}</td>
+          </tr>
+          {% endfor %}
+          {% else %}
+          <tr>
+            <td colspan="3" class="text-center">No results to display</td>
+          </tr>
+          {% endif %}
+        </tbody>
+      </table>
     </div>
+
+    <a href="/" class="btn btn-primary my-4">Go Back</a>
+
+</div>
 </body>
 </html>
