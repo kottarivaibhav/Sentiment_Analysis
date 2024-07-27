@@ -21,6 +21,103 @@ body {
       background-position: 0% 0%;
   }
 }
+/* Media query for screens around 1280x720 pixels */
+@media (min-width: 1280px) and (max-height: 720px) {
+  .navbar {
+      padding: 16px 24px; /* Adjusted padding for better spacing */
+  }
+
+  .navbar-title {
+      font-size: 26px; /* Slightly larger font size for readability */
+  }
+
+  .navbar-links a {
+      padding: 12px 20px; /* Adjusted padding for better spacing */
+      font-size: 16px; /* Slightly larger font size for readability */
+  }
+
+  .styled-heading {
+      font-size: 28px; /* Slightly larger font size */
+      padding: 15px 25px; /* Adjusted padding for better spacing */
+  }
+
+  .features-container {
+      gap: 30px; /* Increased gap between feature boxes */
+  }
+
+  .flip-card {
+      width: 320px; /* Slightly larger card width */
+      height: 520px; /* Slightly larger card height */
+  }
+
+  .info-box {
+      font-size: 16px; /* Slightly larger font size for better readability */
+  }
+}
+/* Media query for screens around 360x640 pixels */
+@media (max-width: 360px), (max-height: 640px) {
+  .navbar {
+      padding: 10px 15px; /* Reduced padding for smaller screens */
+      flex-direction: column; /* Stack the title and links vertically */
+      align-items: flex-start; /* Align items to the start */
+  }
+
+  .navbar-title {
+      font-size: 20px; /* Smaller font size for the title */
+      margin-bottom: 10px; /* Space below the title */
+  }
+
+  .navbar-links {
+      display: flex;
+      flex-direction: column; /* Stack links vertically */
+      width: 100%; /* Full width for links */
+  }
+
+  .navbar-links a {
+      padding: 10px;
+      font-size: 14px; /* Smaller font size for links */
+      text-align: left; /* Align text to the left */
+  }
+
+  .styled-heading {
+      font-size: 24px; /* Smaller font size */
+      padding: 10px 15px; /* Adjusted padding for smaller screens */
+  }
+
+  .features-container {
+      flex-direction: column; /* Stack feature cards vertically */
+      gap: 15px; /* Reduced gap between feature boxes */
+  }
+
+  .flip-card {
+      width: 100%; /* Full width for flip cards */
+      height: auto; /* Automatic height to fit content */
+      max-width: 300px; /* Maximum width to avoid stretching */
+      margin: 0 auto; /* Center horizontally */
+  }
+
+  .info-box {
+      font-size: 14px; /* Smaller font size for better fit */
+      padding: 15px; /* Adjusted padding for smaller screens */
+  }
+
+  .form-control-file,
+  .form-control {
+      font-size: 14px; /* Smaller font size */
+      padding: 8px; /* Adjusted padding */
+  }
+
+  .btn-primary,
+  .k {
+      font-size: 14px; /* Smaller font size */
+      padding: 8px 12px; /* Adjusted padding */
+  }
+
+  label {
+      font-size: 16px; /* Smaller font size */
+      padding: 8px 12px; /* Adjusted padding */
+  }
+}
 
 
 .wave {
