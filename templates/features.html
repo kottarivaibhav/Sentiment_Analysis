@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Features - Twitter Sentiment Analysis</title>
+    <link rel="stylesheet" href="static\css\features.css"> <!-- Link to your CSS file for styling -->
+    <link href="https://fonts.googleapis.com/css2?family=Baskervville+SC&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div>
+        <div class="wave"></div>
+        <div class="wave"></div>
+        <div class="wave"></div>
+     </div>
+     <header class="header">
+       <div class="container">
+          <div class="header-content">
+              <!-- Added navbar section -->
+              <nav class="navbar">
+                <h2 class="navbar-title">Sentiment Analysis</h2> <!-- Title with custom font -->
+                <div class="navbar-links">
+                    <a href="#Home">Home</a>
+                    <a href="#about">About</a>
+                    <a href="#service">Service</a>
+                </div>
+             </nav>
+                  <!-- End of added navbar section -->
+            </div>
+        </div>
+      </header>
+
+    <main class="main-content">
+        <div class="container">
+            <section class="features-section">
+                <h2 class="styled-heading">CHOOSE YOUR OPTION</h2>
+                <div class="features-container">
+                    <div class="flip-card">
+                        <div class="flip-card-inner">
+                          <div class="flip-card-front">
+                            <h4 class="big">&nbsp;&nbsp;Phase&nbsp;&nbsp;&nbsp;&nbsp; Level Sentiment Analysis</h4>
+                            <div class="info-box">
+                              <li>Extract a bunch of texts from a file </li>
+                              <li>Get analysis of every text</li>
+                              <li>Get to know emotional status of each text</li>
+                            </div>
+                            <p> </p>
+                          </div>
+                          <div class="flip-card-back">
+                            <form action="/predict" method="post" enctype="multipart/form-data">
+                                <div class="form-group">
+                                    <label class="p" for="csv_file"><i class="fa-solid fa-upload"></i> Upload CSV file</label>
+                                    <input type="file" class="form-control-file" name="csv_file" id="csv_file" accept=".csv">
+                                </div>
+                                <button class="k" name="submit" type="submit" class="btn">Predict!</button>
+                            </form>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="flip-card">
+                        <div class="flip-card-inner">
+                          <div class="flip-card-front">
+                            <h4 class="big">Sentence Level Sentiment Analysis</h4>
+                            <div class="info-box">
+                              <li>Enter a sentence or text</li>
+                              <li>Get analysis of the the text</li>
+                              <li>Get to know its emotional status</li>
+                            </div>
+                          </div>
+                          <div class="flip-card-back">
+                            <form action="/predict1" method="post">
+                              <div class="form-group">
+                                <input type="text" class="form-control" name="txt" placeholder="Enter a sentence" autocomplete="off">
+                              </div>
+                              <button class="k"name="submit" type="submit" class="btn">Predict!</button>
+                          </div>
+                        </div>
+                      </div>
+                </div>
+            </section>
+        </div>
+        
+    </main>
+    <!-- Footer Section -->
+      <footer class="footer">
+        <p>&copy; 2024 Sentiment Analysis. All rights reserved.</p>
+        
+       
+      <div class="footerBottom">
+        <p> Designed by :<span class="designer">Vaibhav Kottari | Shashank Prabhu | Veeyan Sequeira | Shawn Monterio</span></p>
+      </div>
+      </footer>  
+    
+    <!-- Content of other sections will go here -->
+
+</body>
+</html>

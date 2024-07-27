@@ -1,0 +1,164 @@
+/* Reset default margin and padding */
+body, h1, h2, h3, h4, h5, h6, p, ul, ol, li, figure, figcaption, blockquote, dl, dd {
+    margin: 0;
+    padding: 0;
+}
+
+/* Set box-sizing to border-box for all elements */
+*, *::before, *::after {
+    box-sizing: border-box;
+}
+/* Styles for dark theme */
+.dark-theme {
+    background-color: #1a1a1a; /* Dark background color */
+    color: #ffffff; /* Light text color */
+  }
+  
+  .dark-theme .big-text {
+    color: #ffffff; /* Light text color for h1 */
+    top: 20px;
+    position: absolute;
+    display: flex;
+    font-size: 3rem;
+    color: transparent;
+    -webkit-text-stroke: 3px rgb(20, 17, 10);
+  }
+  
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    display: flex;
+    background-color: #9e334e;
+    background-image: url(./Twitter_bird.png);
+    background-size: 70% 70%;
+    background-position: center;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    position: relative; /* Ensure relative positioning for absolute positioning of sidebar */
+}
+
+.container {
+    max-width: 800px;
+    margin: 20px;
+    padding: 20px;
+    background-color: #252456;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+}
+
+.container:hover {
+    color: #111;
+    background: rgb(174, 208, 122);
+    box-shadow: 0 0 100px greenyellow;
+    transition: 2s ease-in-out;
+
+}
+
+.title {
+margin: 0;
+padding: 0;
+}
+
+
+.dark-theme .big-text::before{
+    content:"Twitter Sentiment Analysis";
+    position: absolute;
+    width: 0%;
+    height: 100%;
+    overflow: hidden;
+    color: rgb(112, 53, 152);
+    border-right: 8px solid rgb(7, 3, 5);
+    transition: 2s ease-in-out;
+}
+.dark-theme .big-text:hover::before{
+    width: 100%;
+    filter: drop-shadow(0 0 25px rgb(117, 68, 169));
+}
+
+.form-card {
+    margin-bottom: 20px;
+}
+
+.card-title {
+    font-size: 1.5rem;
+    font-weight: bold;
+}
+
+.card-body {
+    padding: 2rem;
+}
+
+.card-body .form-group {
+    margin-bottom: 1.5rem;
+}
+
+.form-control {
+    height: calc(2.25rem + 2px); /* Match Bootstrap standard height */
+}
+
+.btn-primary {
+    background-color: #007bff;
+    border-color: #007bff;
+}
+
+.btn-primary:hover {
+    background-color: #0056b3;
+    border-color: #0056b3;
+}
+
+.twitterimg {
+    max-width: 100%;
+    height: auto;
+    border-radius: 8px;
+}
+
+/* About Me Sidebar */
+.sidebar {
+    position: fixed;
+    top: 0;
+    right: -250px; /* Off-screen initially */
+    width: 250px;
+    height: 100%;
+    background-color: #007bff;
+    padding: 20px;
+    transition: all 0.3s ease;
+    z-index: 1000;
+    overflow-y: auto;
+}
+
+.sidebar.open {
+    right: 0;
+}
+
+.sidebar-content {
+    color: #fff;
+    font-size: 1.2rem;
+    line-height: 1.6;
+}
+
+.about-me-btn {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    font-size: 1.1rem;
+    color: #fff;
+    text-decoration: none;
+    padding: 8px 16px;
+    background-color: #007bff;
+    border: 2px solid #007bff;
+    border-radius: 8px;
+    transition: all 0.3s ease;
+    z-index: 1100; /* Ensure button is above sidebar */
+    cursor: pointer;
+}
+
+.about-me-btn:hover {
+    background-color: #0056b3;
+    border-color: #0056b3;
+}
+
+

@@ -1,0 +1,47 @@
+body {
+  color: #08315a !important;
+  background: linear-gradient(to right, #191727, #6760ba, #5e5eef);
+}
+
+.display-4 {
+  font-size: 2.5rem; /* Adjust font size as needed */
+}
+
+.h3 {
+  margin-bottom: 2rem; /* Adjust margin-bottom as needed */
+}
+
+.btn-primary {
+  background-color: #46529e; /* Adjust button color as desired */
+  border-color: #4055ca; /* Match button color with border */
+}
+
+.card {
+  border-color: #81aedb; /* Adjust border color as needed */
+}
+#contact {
+  background:#16293b96;
+  padding:25px;
+  margin:50px 0;
+}
+
+#contact h1{
+  color: #2f2b61;
+  text-transform: uppercase;
+  font-size: 30px;
+  font-weight: 700;
+}
+
+.table {
+  width: 95% !important; 
+  color: #e9ecef !important;
+  margin: auto;
+}
+
+.table-bordered {
+  border: 1px solid #e9ecef;
+}
+
+
+
+
