@@ -397,3 +397,23 @@ label:active {
     font-weight: 400;
     margin: 0px 5px;
 }
+
+/* Responsive Styles */
+@media (max-width: 768px) {
+    .navbar-title {
+        font-size: 20px; /* Smaller title font size on mobile */
+    }
+
+    .navbar-links {
+        flex-direction: column; /* Stack links vertically on mobile */
+    }
+
+    .styled-heading {
+        font-size: 20px; /* Smaller heading font size on mobile */
+        padding: 10px 15px;
+    }
+
+    .features-container {
+        flex-direction: column; /* Stack features vertically on mobile */
+    }
+}
