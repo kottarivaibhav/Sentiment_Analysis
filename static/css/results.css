@@ -10,6 +10,17 @@ body {
   background-attachment: fixed;
 }
 
+h2.my-4.text-center {
+   /* Bootstrap primary color */
+  color: rgb(26, 51, 56);
+  padding: 20px;
+  border-radius: 10px;
+  font-family: 'Arial', sans-serif;
+  font-weight: bold;
+  text-shadow: 1px 1px 2px #2c819b;
+  font-size: 40px;
+}
+
 @keyframes gradient {
   0% {
       background-position: 0% 0%;
@@ -175,15 +186,15 @@ body {
 
 /* Custom sentiment colors */
 .positive {
-  color: rgb(239, 255, 10);
+  color: rgb(255, 161, 10);
 }
 
 .negative {
-  color: rgb(159, 144, 144);
+  color: rgb(96, 28, 231);
 }
 
 .neutral {
-  color: green;
+  color: rgb(4, 5, 4);
 }
 
 .btn-primary {
