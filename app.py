@@ -1,8 +1,14 @@
+import os
 import re
 import pandas as pd
 from textblob import TextBlob
-from flask import Flask, render_template, request, redirect, url_for
+from flask import Flask, render_template, request, redirect, url_for, send_file
 from io import StringIO
+import tempfile
+import nltk
+from nltk.corpus import stopwords
+
+nltk.download('stopwords')
 
 app = Flask(__name__)
 app.static_folder = 'static'
@@ -19,12 +25,20 @@ def get_tweet_sentiment(tweet):
     else:
         return "negative"
 
+def preprocess_text(tweet):
+    tweet = tweet.lower()
+    tweet = re.sub(r'[^\w\s]', '', tweet)
+    stop_words = set(stopwords.words('english'))
+    tweet = ' '.join([word for word in tweet.split() if word not in stop_words])
+    return tweet
+
 def get_tweets_from_csv(file_content):
     try:
         data = pd.read_csv(StringIO(file_content))
         tweets = data.to_dict(orient='records')
         for tweet in tweets:
             tweet['sentiment'] = get_tweet_sentiment(tweet['content'])
+            tweet['preprocessed_content'] = preprocess_text(tweet['content'])
         return tweets
     except Exception as e:
         print(f"Error reading CSV: {str(e)}")
@@ -41,9 +55,24 @@ def pred():
             csv_file = request.files['csv_file']
             file_content = csv_file.read().decode('utf-8')
             fetched_tweets = get_tweets_from_csv(file_content)
-            return render_template('result.html', result=fetched_tweets)
+            
+            processed_df = pd.DataFrame(fetched_tweets)
+            temp_file = tempfile.NamedTemporaryFile(delete=False, suffix='.csv')
+            processed_df.to_csv(temp_file.name, index=False)
+            temp_file_path = temp_file.name
+            temp_file.close()
+            
+            return render_template('result.html', result=fetched_tweets, csv_download=True, temp_file_path=temp_file_path)
         except Exception as e:
             return f"Error: {str(e)}"
+
+@app.route('/download_csv')
+def download_csv():
+    temp_file_path = request.args.get('temp_file_path')
+    if temp_file_path and os.path.exists(temp_file_path):
+        return send_file(temp_file_path, mimetype='text/csv', download_name='processed_tweets.csv', as_attachment=True)
+    else:
+        return "File not found", 404
 
 @app.route("/predict1", methods=['POST'])
 def pred1():
@@ -58,5 +87,5 @@ def pred1():
             text_sentiment = "negative"
         return render_template('result1.html', msg=text, result=text_sentiment)
 
-#if __name__ == '__main__':
- #   app.run(debug=True)
+if __name__ == '__main__':
+    app.run(debug=True)
