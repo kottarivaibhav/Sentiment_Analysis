@@ -32,6 +32,14 @@ def preprocess_text(tweet):
     tweet = ' '.join([word for word in tweet.split() if word not in stop_words])
     return tweet
 
+def get_polarity_words(tweet):
+    analysis = TextBlob(tweet)
+    words = analysis.words
+    word_polarities = {word: TextBlob(word).sentiment.polarity for word in words}
+    sorted_words = sorted(word_polarities.items(), key=lambda item: item[1], reverse=True)
+    top_words = [word for word, polarity in sorted_words[:5]]  # Get top 5 words by polarity
+    return ', '.join(top_words), analysis.sentiment.polarity
+
 def get_tweets_from_csv(file_content):
     try:
         data = pd.read_csv(StringIO(file_content))
@@ -39,6 +47,9 @@ def get_tweets_from_csv(file_content):
         for tweet in tweets:
             tweet['sentiment'] = get_tweet_sentiment(tweet['content'])
             tweet['preprocessed_content'] = preprocess_text(tweet['content'])
+            top_words, polarity_score = get_polarity_words(clean_tweet(tweet['content']))
+            tweet['top_polarity_words'] = top_words
+            tweet['polarity_score'] = polarity_score
         return tweets
     except Exception as e:
         print(f"Error reading CSV: {str(e)}")
