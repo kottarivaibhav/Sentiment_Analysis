@@ -6,6 +6,20 @@ This project is a web application for sentiment analysis. It allows users to inp
 ## Live Demo
 You can access the live web application [here](https://sentiment-analysis-ngla.onrender.com/).
 
+## Project Images
+
+![Screenshot 1](./images/img_1.png)
+*Figure 1:Shows the web add interface .*
+
+![Screenshot 2](./images/img_2.png)
+*Figure 2: You can either add a CSV file or add a single line text to check its sentiment.*
+
+![Screenshot 3](./images/img_3.png)
+*Figure 3: Result of sentiment analysis of CSV file .*
+
+![Screenshot 4](./images/img_4.png)
+*Figure 2: Result of sentiment analysis of Text input.*
+
 ## Features
 - **User Input**: Users can input text directly into the web app.
 - **Sentiment Analysis**: The app processes the input text and returns a sentiment score.
