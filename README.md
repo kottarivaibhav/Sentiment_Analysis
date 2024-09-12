@@ -18,7 +18,7 @@ You can access the live web application [here](https://sentiment-analysis-ngla.o
 *Figure 3: Result of sentiment analysis of CSV file .*
 
 ![Screenshot 4](./images/img_4.png)
-*Figure 2: Result of sentiment analysis of Text input.*
+*Figure 4: Result of sentiment analysis of Text input.*
 
 ## Features
 - **User Input**: Users can input text directly into the web app.
